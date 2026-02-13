@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% load static %}
+
+
+{% block page_title %}
+    ALL POST
+{% endblock %}
+{% block css_files %} 
+    <link rel="stylesheet" href="{% static 'blogs/posts.css' %}">
+{% endblock %}
+
+{% block body_content %}
+    {% include "blogs/includes/headers.html" %}
+    
+    <ul>
+        {% for blog in blogs %}
+            {% include "blogs/includes/posts.html" %}
+            <!-- <li>
+                <a href="{% url 'blog-post' blog.slug %}">{{blog.slug|capfirst}}</a>
+                <img src="{% static 'blogs/images/'|add:blog.image %}" alt="{{blog.slug}}">
+                <div>
+                    <h3>{{ blog.title }}</h3>
+                    <p>{{ blog.content }}</p>
+                </div>
+            </li> -->
+                                    
+        {% endfor %}
+    </ul>
+{% endblock %}

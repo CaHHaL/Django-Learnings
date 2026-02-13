@@ -1,0 +1,60 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block page_title %}
+HomePage
+{% endblock %}
+
+{% block body_content %}
+    {% include "blogs/includes/headers.html" %}
+    <section>
+        <img src="{% static 'blogs/images/author.jpg' %}" alt="Authors">
+        <h1>My Personal Blog</h1>
+        <h2>I write about Python and related topics & Data Science, AI & ML</h2>
+    </section>
+    
+    <section>
+        <h2>Latest</h2>
+        <ul>
+            {% for blog in l_blogs %}
+                {% include "blogs/includes/posts.html" %}
+                <!-- <li>
+                    <a href="{% url 'blog-post' blog.slug %}">{{blog.slug|capfirst}}</a>
+                    <img src="{% static 'blogs/images/'|add:blog.image %}" alt="{{blog.slug}}">
+                    <div>
+                        <h3>{{ blog.title }}</h3>
+                        <p>{{ blog.content }}</p>
+                    </div>
+                </li> -->
+                                    
+            {% endfor %}
+            <!-- <li>
+                <article>
+                    <a href=""></a>
+                        <img src="" alt="Python">
+                        <div>
+                            <h3>Python Introduction</h3>
+                            <p>Python is a high level language</p>
+                        </div>
+                </article>
+            </li>
+            <li>
+                <article>
+                    <a href=""></a>
+                        <img src="" alt="Django">
+                        <div>
+                            <h3>Django Basics</h3>
+                            <p>Django is a web framework</p>
+                        </div>
+                </article>
+            </li> -->
+        </ul>
+    </section>
+
+    <section>
+        <h2>About the Author</h2>
+        <p>I am 13+years of experience in Software Engineering</p>
+        <p>Contact me on rk936503@gmail.com</p>
+    </section>
+
+{% endblock %}

@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block page_title %}
+{{post_details.title |title}}
+{% endblock %}
+
+
+{% block body_content %}
+{% include "blogs/includes/headers.html" %}
+
+<h1>{{post_details.title |title}}</h1>
+<p>{{post_details.date | date:'dS M, y'}}</p>
+<h2>{{ post_details.content }}</h2>
+<img src="{% static 'blogs/images/'|add:post_details.image %}" alt="{{post_details.title |title}}"></p>
+{% endblock %}
