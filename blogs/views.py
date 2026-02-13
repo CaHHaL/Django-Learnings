@@ -69,6 +69,8 @@ def blogposts(request):
     # return HttpResponse(res_data)
 
     # return render(request, 'blogs/allposts.html', {"blogs": blog_list})
+
+
     return render(request, 'blogs/allposts.html', {"blogs": blog_details})
 
 # def blogposts(request):
@@ -83,12 +85,13 @@ def blogs_post(request, blog):
     try:
 
         # content = blog_details[blog]
-        for post in blog_details:
-            if post['slug']==blog:
-                details=post
-                break
-        else:
-            raise Http404()    
+        details=Post.objects.get(slug=blog)
+        # for post in details:
+        #     if post['slug']==blog:
+        #         details=post
+        #         break
+        # else:
+        #     raise Http404()    
     except Exception:
         # return HttpResponseNotFound("Blog not found")
         raise Http404()
