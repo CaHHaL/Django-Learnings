@@ -1,4 +1,4 @@
-FROM python:3.9-slim
+FROM python:3.12-slim
 
 WORKDIR /app
 
@@ -8,4 +8,4 @@ RUN pip install -r requirements.txt
 
 COPY . .
 
-CMD ['python','/drf_backend/manage.py','runserver', '0.0.0.0:8000']
+CMD ["python","drf_project/manage.py","runserver", "0.0.0.0:8000"]
