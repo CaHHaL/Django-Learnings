@@ -86,18 +86,18 @@ WSGI_APPLICATION = 'drf_project.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'lms_db',
-        'USER': 'lms_user',
-        'PASSWORD': 'Test@123',
-        'HOST': 'db',
-        'PORT': '5432',
-        # 'ENGINE': config('DB_ENGINE'),
-        # 'NAME': config('DB_NAME'),
-        # 'USER': config('DB_USER'),
-        # 'PASSWORD': config('DB_PASSWORD'),
-        # 'HOST': config('DB_HOST'),
-        # 'PORT': config('DB_PORT'),
+        # 'ENGINE': 'django.db.backends.postgresql',
+        # 'NAME': 'lms_db',
+        # 'USER': 'lms_user',
+        # 'PASSWORD': 'Test@123',
+        # 'HOST': 'db',
+        # 'PORT': '5432',
+        'ENGINE': config('DB_ENGINE'),
+        'NAME': config('DB_NAME'),
+        'USER': config('DB_USER'),
+        'PASSWORD': config('DB_PASSWORD'),
+        'HOST': config('DB_HOST', default='db'),
+        'PORT': config('DB_PORT',default='5432'),
     }
 }
 
